@@ -269,40 +269,8 @@ pytest tests/
 - No false contributor identity added.
 - No secrets committed (`.env` not used; no API keys or tokens in repository).
 
----
 
-## Final Acceptance Checklist (Verified)
 
-- [x] Repository structure clean (`src/`, `tests/`, `notebooks/`, `figures/`, `reports/`, `data/raw/`)
-- [x] No unnecessary frontend/backend (pure Python ML repository)
-- [x] Dataset source verified (`labcontrol-data/MagLev`)
-- [x] Dataset schema verified (no headers; inferred from code; documented)
-- [x] Target verified (`position_cm` = equilibrium height, inferred from `xref=1.32`)
-- [x] Units verified (cm for position, s for time, normalized for control)
-- [x] Missing values investigated (0 found)
-- [x] Duplicate rows investigated (0 found)
-- [x] Outliers investigated (not automatically removed; documented)
-- [x] Baseline (Linear) implemented
-- [x] Polynomial Regression implemented (via `PolynomialFeatures` pipeline)
-- [x] Random Forest implemented
-- [x] Gradient Boosting implemented
-- [x] MLP implemented (small network, dataset size supports it)
-- [x] Cross-validation implemented (5-fold)
-- [x] Hyperparameter tuning implemented (limited `GridSearchCV` grids)
-- [x] No data leakage (scaler fitted on train only)
-- [x] Reproducible random seeds (`random_state=42`, `np.random.seed`)
-- [x] MAE, RMSE, R² computed and saved (verified results in `reports/model_comparison.json`)
-- [x] Actual vs Predicted plot (`figures/actual_vs_predicted.png`)
-- [x] Residual plot (`figures/residual_plot.png`)
-- [x] Feature importance (`figures/feature_importance.png`)
-- [x] Raw vs Physics-Inspired experiment (`reports/model_comparison.json`)
-- [x] Tests executed (`tests/test_dataset.py` passes)
-- [x] Documentation updated (`decisions.md`, `flow.md`, `handoff.md`)
-- [x] No fabricated results (all metrics from actual execution)
-- [x] No AI/tool attribution in commits or docs
-- [x] No secrets committed
-
----
 
 ## Citation
 
