@@ -35,3 +35,12 @@ Next: ask about dataset source/provenance before proceeding.
 - Why: The dataset contains only time, position, and control. No current, voltage, gap, or mass measurements are present in `.mat` files or Arduino code.
 - Alternatives: Invent synthetic current/gap (rejected — violates no-fabrication rule).
 - Consequences: Physics-inspired feature experiment will be limited to what is derivable from position and reference value; results will document this limitation.
+
+### D-004: Consolidation into Single Canonical Analysis Notebook
+- Date: 2026-10-06 / Notebook Consolidation
+- Context: User requested replacing fragmented multi-notebook layout with one comprehensive, self-contained educational notebook (`notebooks/MagLev_ML_Complete_Analysis.ipynb`).
+- Decision: Removed redundant partial notebooks (`01_*.ipynb` through `06_*.ipynb`) and created `notebooks/MagLev_ML_Complete_Analysis.ipynb` as the sole canonical human-readable project walkthrough.
+- Why: Prevents conflicting or fragmented narratives; allows a reader, reviewer, or student to run one document from top to bottom to reproduce the entire study.
+- Alternatives considered: Keeping multiple notebooks or keeping backup folder inside `notebooks/` (rejected: creates ambiguity about canonical source).
+- Consequences: Exactly one notebook exists in `notebooks/`, verified to execute cleanly end-to-end.
+- Files: `notebooks/MagLev_ML_Complete_Analysis.ipynb`, `scripts/generate_canonical_notebook.py`, `README.md`.

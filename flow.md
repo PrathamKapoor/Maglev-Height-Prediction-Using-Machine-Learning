@@ -8,18 +8,35 @@ https://github.com/labcontrol-data/MagLev (cloned to data_repo/)
   └─ code/maincode.cc       (Arduino control code, reference xref=1.32 cm)
 ```
 
-## Pipeline (actual file/function names)
+## Pipeline Execution Flow
+
+### 1. Interactive Walkthrough (Canonical Notebook)
+```text
+notebooks/MagLev_ML_Complete_Analysis.ipynb
+ └─ MagLevDataset.load()
+     └─ MagLevDataset.validate()
+         └─ Visual Exploratory Data Analysis (EDA)
+             └─ engineer_features() (non-target derived features only)
+                 └─ train_test_split() (70% train / 15% val / 15% test, seed=42)
+                     └─ StandardScaler.fit(X_train) / transform(val, test)
+                         └─ Model Training (Linear, Poly, RF, GB, MLP)
+                             └─ 5-Fold GridSearchCV on Train
+                                 └─ Evaluation on Held-Out Test Set
+                                     └─ Residual Diagnostics & Physical Interpretation
 ```
+
+### 2. Command-Line Batch Pipeline
+```text
 train.py
   └─ dataset.load()
       └─ dataset.validate()
-      └─ split_dataset()
-          └─ build_preprocessor()
-              └─ engineer_features()
-                  └─ train_model()
-                      └─ cross_validate()
-                          └─ evaluate_model()
-                              └─ plot_results()
+          └─ engineer_features()
+              └─ split_dataset()
+                  └─ build_preprocessor()
+                      └─ train_model()
+                          └─ cross_validate()
+                              └─ evaluate_model()
+                                  └─ plot_results()
 ```
 
 ### What / Why / How / When (verified)
@@ -48,12 +65,11 @@ train.py
 - HOW: Fit on train only; transform train/val/test with fitted scaler.
 - WHEN: After split, before feature engineering / model training.
 
-### Operation: Feature Engineering (Physics-Inspired)
-- WHAT: Derive `current_squared` (if current present), `inverse_gap` (if gap present), `position_reference_deviation`.
-- WHY: Physical relationships between magnetic force, distance, and current may improve prediction.
-- HOW: Only if source variables exist; for this dataset, `position_reference_deviation = position_cm - 1.32` (xref from maincode.cc) is justified. Additional derived features (`position_squared`, `time_squared`) are tested but documented as exploratory.
-- WHEN: After split and scaling, before training.
-
+### Operation: Feature Engineering (Physics-Inspired, Leakage-Free)
+- WHAT: Derive non-target features: `time_squared`, `control_squared`, `time_x_control`, `control_deviation_from_mean`.
+- WHY: Quadratic magnetic force behavior ($F \propto i^2$) and time-varying dynamics can be modeled without using the target variable.
+- HOW: Vectorized operations in `src/features.py`. Target-dependent features (`position_cm - xref`, `position_squared`) are strictly omitted to prevent data leakage.
+- WHEN: Before train/test split, ensuring target column `position_cm` is strictly isolated as the prediction label.
 ### Operation: Model Training
 - WHAT: Train Linear Regression, Polynomial Regression, Random Forest, Gradient Boosting, MLP.
 - WHY: Establish baseline (linear), test nonlinear patterns (polynomial, RF, GB), test deep learning (MLP) if dataset supports.

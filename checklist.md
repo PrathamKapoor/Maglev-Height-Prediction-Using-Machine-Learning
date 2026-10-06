@@ -90,3 +90,39 @@
 - [x] Actual JSON results saved to `reports/`
 - [x] Actual `.mat` dataset files preserved in `data/raw/`
 - [x] Limitations explicitly documented (closed-loop dataset, no independent current/gap variables, inference of column names)
+
+## Notebook Consolidation + README Overhaul
+- [x] Inspect all existing notebooks
+- [x] Identify duplicated notebook logic
+- [x] Identify unique notebook content
+- [x] Design one canonical notebook structure
+- [x] Create one canonical notebook (`notebooks/MagLev_ML_Complete_Analysis.ipynb`)
+- [x] One logical section per cell
+- [x] Add WHAT/WHY/HOW/WHEN explanations
+- [x] Add dataset exploration
+- [x] Add data quality analysis
+- [x] Add all required ML models
+- [x] Add model comparison
+- [x] Add actual vs predicted plots
+- [x] Add residual plots
+- [x] Add feature importance
+- [x] Add raw vs physics-inspired experiment
+- [x] Add final interpretation
+- [x] Run notebook from clean kernel
+- [x] Verify all cells execute
+- [x] Verify all plots generate
+- [x] Verify no fabricated outputs
+- [x] Remove/archive redundant notebooks
+- [x] Rewrite README
+- [x] Add README figures
+- [x] Add README architecture
+- [x] Add README setup
+- [x] Add README reproducibility
+- [x] Add README limitations
+- [x] Update decisions.md
+- [x] Update flow.md
+- [x] Update handoff.md
+- [x] Run tests
+- [x] Inspect git diff
+- [x] Inspect git status
+- [x] Commit changes

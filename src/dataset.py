@@ -51,8 +51,20 @@ DATASET_PROVENANCE: Dict[str, str] = {
 class MagLevDataset:
     """Loader and validator for MagLev `.mat` dataset files."""
 
-    def __init__(self, data_dir: pathlib.Path | str = "data/raw"):
-        self.data_dir = pathlib.Path(data_dir)
+    def __init__(self, data_dir: pathlib.Path | str | None = None):
+        if data_dir is not None:
+            self.data_dir = pathlib.Path(data_dir)
+        else:
+            default_path = pathlib.Path("data/raw")
+            if default_path.exists():
+                self.data_dir = default_path
+            else:
+                repo_root = pathlib.Path(__file__).resolve().parent.parent
+                fallback = repo_root / "data" / "raw"
+                if fallback.exists():
+                    self.data_dir = fallback
+                else:
+                    self.data_dir = default_path
         self.files: Dict[str, np.ndarray] = {}
         self.metadata: Dict[str, object] = {}
 
