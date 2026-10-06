@@ -1,0 +1,114 @@
+[
+  {
+    "experiment_id": "EXP-001",
+    "timestamp": "2026-10-06T20:33:58.660337",
+    "dataset": "Classic_PID.mat",
+    "features": "raw",
+    "feature_count": 2,
+    "model": "LinearRegression",
+    "best_params": {
+      "fit_intercept": true
+    },
+    "test_mae_cm": 1.44878004587074e-16,
+    "test_rmse_cm": 1.8235399484354072e-16,
+    "test_r2": 1.0,
+    "cv_mean_mae_cm": 1.0715443305579918e-16,
+    "cv_std_mae_cm": 1.951411930877017e-17,
+    "random_state": 42,
+    "notes": "Actual execution results; not fabricated."
+  },
+  {
+    "experiment_id": "EXP-002",
+    "timestamp": "2026-10-06T20:34:14.072063",
+    "dataset": "Classic_PID.mat",
+    "features": "raw",
+    "feature_count": 2,
+    "model": "RandomForest",
+    "best_params": {
+      "max_depth": 10,
+      "min_samples_split": 2
+    },
+    "test_mae_cm": 2.4038461571486503e-06,
+    "test_rmse_cm": 6.303343783820056e-05,
+    "test_r2": 0.9999993492979383,
+    "cv_mean_mae_cm": 0.00044032044348016704,
+    "cv_std_mae_cm": 0.000490751452991972,
+    "random_state": 42,
+    "notes": "Actual execution results; not fabricated."
+  },
+  {
+    "experiment_id": "EXP-003",
+    "timestamp": "2026-10-06T20:34:20.497587",
+    "dataset": "Classic_PID.mat",
+    "features": "raw",
+    "feature_count": 2,
+    "model": "GradientBoosting",
+    "best_params": {
+      "learning_rate": 0.1,
+      "max_depth": 3
+    },
+    "test_mae_cm": 8.233151730283599e-05,
+    "test_rmse_cm": 0.0022195368854213606,
+    "test_r2": 0.9991932017864127,
+    "cv_mean_mae_cm": 0.0004416903327671649,
+    "cv_std_mae_cm": 0.0005377174403631916,
+    "random_state": 42,
+    "notes": "Actual execution results; not fabricated."
+  },
+  {
+    "experiment_id": "EXP-004",
+    "timestamp": "2026-10-06T20:34:20.585252",
+    "dataset": "Classic_PID.mat",
+    "features": "physics_inspired",
+    "feature_count": 6,
+    "model": "LinearRegression",
+    "best_params": {
+      "fit_intercept": true
+    },
+    "test_mae_cm": 1.0614220125537211e-16,
+    "test_rmse_cm": 1.561441745696042e-16,
+    "test_r2": 1.0,
+    "cv_mean_mae_cm": 1.1285456282542397e-16,
+    "cv_std_mae_cm": 7.195009614524812e-18,
+    "random_state": 42,
+    "notes": "Actual execution results; not fabricated."
+  },
+  {
+    "experiment_id": "EXP-005",
+    "timestamp": "2026-10-06T20:34:40.151996",
+    "dataset": "Classic_PID.mat",
+    "features": "physics_inspired",
+    "feature_count": 6,
+    "model": "RandomForest",
+    "best_params": {
+      "max_depth": null,
+      "min_samples_split": 2
+    },
+    "test_mae_cm": 2.8846153876758056e-06,
+    "test_rmse_cm": 7.600065066222977e-05,
+    "test_r2": 0.9999990540355508,
+    "cv_mean_mae_cm": 0.00043561634105625886,
+    "cv_std_mae_cm": 0.0004737798927285348,
+    "random_state": 42,
+    "notes": "Actual execution results; not fabricated."
+  },
+  {
+    "experiment_id": "EXP-006",
+    "timestamp": "2026-10-06T20:34:53.965915",
+    "dataset": "Classic_PID.mat",
+    "features": "physics_inspired",
+    "feature_count": 6,
+    "model": "GradientBoosting",
+    "best_params": {
+      "learning_rate": 0.1,
+      "max_depth": 3
+    },
+    "test_mae_cm": 2.704007351133118e-05,
+    "test_rmse_cm": 0.0007277011531006423,
+    "test_r2": 0.9999132745981998,
+    "cv_mean_mae_cm": 0.0004182365748872039,
+    "cv_std_mae_cm": 0.0005163152001938998,
+    "random_state": 42,
+    "notes": "Actual execution results; not fabricated."
+  }
+]
