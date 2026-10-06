@@ -1,0 +1,44 @@
+{
+  "experiment_type": "data_size_learning_curve",
+  "dataset": "Classic_PID.mat",
+  "model": "RandomForestRegressor",
+  "random_state": 42,
+  "notes": "Verified results; synthetic data not used.",
+  "results": [
+    {
+      "fraction": 0.1,
+      "n_train_samples": 339,
+      "test_mae_cm": 0.00016792582417779692,
+      "test_rmse_cm": 0.001004220147375818,
+      "test_r2": 0.9998348425933191
+    },
+    {
+      "fraction": 0.25,
+      "n_train_samples": 848,
+      "test_mae_cm": 3.365384615636912e-05,
+      "test_rmse_cm": 0.0005711228577820281,
+      "test_r2": 0.9999465805664446
+    },
+    {
+      "fraction": 0.5,
+      "n_train_samples": 1696,
+      "test_mae_cm": 5.151098903881059e-06,
+      "test_rmse_cm": 7.217671384842905e-05,
+      "test_r2": 0.9999991468323012
+    },
+    {
+      "fraction": 0.75,
+      "n_train_samples": 2544,
+      "test_mae_cm": 1.373626376744607e-06,
+      "test_rmse_cm": 1.777453419730657e-05,
+      "test_r2": 0.9999999482587816
+    },
+    {
+      "fraction": 1.0,
+      "n_train_samples": 3392,
+      "test_mae_cm": 6.181318713824049e-07,
+      "test_rmse_cm": 1.3490941201558702e-05,
+      "test_r2": 0.9999999701925589
+    }
+  ]
+}

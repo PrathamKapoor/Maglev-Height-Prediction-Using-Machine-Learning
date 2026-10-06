@@ -1,0 +1,45 @@
+{
+  "experiment_type": "noise_robustness",
+  "dataset": "Classic_PID.mat",
+  "model": "RandomForestRegressor",
+  "synthetic_note": "All noise levels are artificially generated. Results are labeled synthetic.",
+  "random_state": 42,
+  "results": [
+    {
+      "noise_level": 0.0,
+      "noise_description": "0% synthetic Gaussian noise on training target",
+      "test_mae_cm": 2.8846153878850396e-06,
+      "test_r2": 0.9999990540355508,
+      "synthetic": true,
+      "seed": 42,
+      "note": "Synthetic noise added only to training target. Real measurements unchanged in test set."
+    },
+    {
+      "noise_level": 0.01,
+      "noise_description": "1% synthetic Gaussian noise on training target",
+      "test_mae_cm": 0.00018769973831317643,
+      "test_r2": 0.9999873121576659,
+      "synthetic": true,
+      "seed": 42,
+      "note": "Synthetic noise added only to training target. Real measurements unchanged in test set."
+    },
+    {
+      "noise_level": 0.05,
+      "noise_description": "5% synthetic Gaussian noise on training target",
+      "test_mae_cm": 0.0009227126760097315,
+      "test_r2": 0.9997106227503995,
+      "synthetic": true,
+      "seed": 42,
+      "note": "Synthetic noise added only to training target. Real measurements unchanged in test set."
+    },
+    {
+      "noise_level": 0.1,
+      "noise_description": "10% synthetic Gaussian noise on training target",
+      "test_mae_cm": 0.0018282900028789998,
+      "test_r2": 0.9988826344843947,
+      "synthetic": true,
+      "seed": 42,
+      "note": "Synthetic noise added only to training target. Real measurements unchanged in test set."
+    }
+  ]
+}

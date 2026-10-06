@@ -18,10 +18,9 @@ Justified derived features (derived ONLY from non-target variables):
 3. time_x_control = time_s * control_normalized  — time-dependent control interaction
 4. control_reference_deviation = control_normalized - mean(control_normalized)  — relative control intensity
 
-NOT implemented (missing source variables — DO NOT INVENT):
-- current_squared (no current measurement)
+NOT implemented (missing variables, not invented):
+- current_squared (no current measurement in dataset or code)
 - inverse_gap (no gap measurement)
-- weight / mass (no mass measurement)
 - position_reference_deviation (uses target — would cause leakage)
 - position_squared (uses target — would cause leakage)
 - time_x_position (uses target — would cause leakage)
@@ -31,14 +30,21 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
+XREF_CM = 1.32  # Verified from Arduino `maincode.cc`: `xref=1.32`
+
 
 def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
+    """Generate physics-informed and interaction features without leakage.
+
+    WHAT: Add `time_squared`, `control_squared`, `time_x_control`, `control_deviation_from_mean`.
+    WHY: Nonlinear dynamics and interaction terms capture physical behavior without using the target as input.
+    HOW: Vectorized arithmetic on pandas Series.
+    WHEN: After dataset loading, before split/preprocessing, to avoid target leakage in derived features.
+    """
     df = df.copy()
-    # Derived ONLY from non-target variables to prevent leakage
     df["time_squared"] = df["time_s"] ** 2
     df["control_squared"] = df["control_normalized"] ** 2
     df["time_x_control"] = df["time_s"] * df["control_normalized"]
-    # Mean-normalized control (relative intensity, no target dependency)
     mean_control = df["control_normalized"].mean()
     df["control_deviation_from_mean"] = df["control_normalized"] - mean_control
     return df

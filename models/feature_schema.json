@@ -1,0 +1,22 @@
+{
+  "feature_order": [
+    "time_s",
+    "control_normalized",
+    "time_squared",
+    "control_squared",
+    "time_x_control",
+    "control_deviation_from_mean"
+  ],
+  "feature_descriptions": {
+    "time_s": "Time in seconds (inferred from .mat col 0)",
+    "control_normalized": "Normalized PWM control input (inferred from .mat col 2, scaled by 255)",
+    "time_squared": "Nonlinear time effect (derived)",
+    "control_squared": "Nonlinear control effect (derived)",
+    "time_x_control": "Time-control interaction (derived)",
+    "control_deviation_from_mean": "Relative control intensity (derived)"
+  },
+  "target": "position_cm",
+  "target_unit": "cm",
+  "reference_value_cm": 1.32,
+  "reference_source": "Arduino maincode.cc (xref=1.32)"
+}
